@@ -1,8 +1,7 @@
 type Props = {
   texts: string[];
   index: number;
-  onDescriptionClick: () => void;
 };
-export function Description({ texts, index, onDescriptionClick }: Props) {
-  return <p onClick={onDescriptionClick}>{texts[index]}</p>;
+export function Description({ texts, index }: Props) {
+  return <p>{texts[index]}</p>;
 }

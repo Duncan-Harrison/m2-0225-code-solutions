@@ -51,17 +51,9 @@ export function App() {
   return (
     <>
       <Header text="React Image Bank" />
-      <Image onImageClick={handleImageClick} srcs={srcs} index={imageIndex} />
-      <Caption
-        onCaptionClick={handleCaptionClick}
-        captions={captions}
-        index={captionIndex}
-      />
-      <Description
-        onDescriptionClick={handleDescriptionClick}
-        texts={descriptions}
-        index={textIndex}
-      />
+      <Image srcs={srcs} index={imageIndex} />
+      <Caption captions={captions} index={captionIndex} />
+      <Description texts={descriptions} index={textIndex} />
       <Button onButtonClick={handleButtonClick} label="Click for Next Image" />
     </>
   );

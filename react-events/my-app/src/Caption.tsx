@@ -1,8 +1,7 @@
 type Props = {
   captions: string[];
   index: number;
-  onCaptionClick: () => void;
 };
-export function Caption({ captions, index, onCaptionClick }: Props) {
-  return <h3 onClick={onCaptionClick}>{captions[index]}</h3>;
+export function Caption({ captions, index }: Props) {
+  return <h3>{captions[index]}</h3>;
 }
