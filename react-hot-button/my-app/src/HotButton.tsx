@@ -1,7 +1,7 @@
 import './HotButton.css';
 type Props = {
   className: string[];
-  label: string[];
+  label: string;
   index: number;
   onButtonClick: () => void;
 };
@@ -12,7 +12,7 @@ export function HotButton({ className, label, index, onButtonClick }: Props) {
       <button className={className[index]} onClick={onButtonClick}>
         Hot Button
       </button>
-      <p>{label[index]}</p>
+      <p>{label}</p>
     </>
   );
 }

@@ -15,15 +15,7 @@ function App() {
     'fifteen-clicks',
     'eighteen-clicks',
   ];
-  const labels = [
-    'start',
-    '3 clicks',
-    '6 clicks',
-    '9 clicks',
-    '12 clicks',
-    '15 clicks',
-    '18 clicks',
-  ];
+
   function handleButtonClick() {
     setClicks(clicks + 1);
     handleIndex();
@@ -51,7 +43,7 @@ function App() {
     <>
       <HotButton
         className={classes}
-        label={labels}
+        label={clicks === 0 ? 'start' : `clicks: ${clicks}`}
         index={index}
         onButtonClick={handleButtonClick}
       />
