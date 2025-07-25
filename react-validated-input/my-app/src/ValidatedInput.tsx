@@ -2,41 +2,20 @@ import { useState } from 'react';
 
 export function ValidatedInput() {
   const [password, setPassword] = useState('');
-  const validNumber = /\d/g;
-  const validCapital = /[A-Z]/g;
-  const validSpecial = /[!@#$%^&*()]/g;
 
-  const proofNumber = validNumber.test(password);
-  const proofCapital = validCapital.test(password);
-  const proofSpecial = validSpecial.test(password);
-
-  function Bub() {
-    let num = 'needs a number';
-    let cap = 'needs a capitalized letter';
-    let special = 'needs a special character [!@#$%^&*()]';
-    if (proofNumber) {
-      num = 'has a number';
-    }
-    if (proofCapital) {
-      cap = 'has a capitalized letter';
-    }
-    if (proofSpecial) {
-      special = 'has a special character';
-    }
-    return (
-      <p>
-        `Your password {cap}, {num}, {special}`
-      </p>
-    );
+  function validate(password: string | undefined): string | undefined {
+    if (password === undefined) return undefined;
+    const trimmed = password.trim();
+    if (!trimmed) return 'A password is required.';
+    if (!/\d/g.test(trimmed)) return 'Password must contain a number.';
+    if (!/[A-Z]/g.test(trimmed))
+      return 'Password must contain a capital letter.';
+    if (!/[!@#$%^&*()]/g.test(trimmed))
+      return 'Password must contain a special character [!@#$%^&*()].';
+    return undefined;
   }
 
-  function Prove() {
-    if (password === '') {
-      return <p className="warning">A password is required.</p>;
-    } else {
-      return <Bub />;
-    }
-  }
+  const statement = validate(password);
 
   return (
     <div>
@@ -47,9 +26,7 @@ export function ValidatedInput() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="validate">
-          <Prove />
-        </div>
+        <div className="validate">{statement}</div>
       </label>
     </div>
   );
