@@ -9,11 +9,11 @@ export type Props = {
   newClick?: (num: number) => void;
 };
 
-export function RotatingBanner({ text, index }: Props) {
+export function RotatingBanner({ text }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   function handleClickNext() {
-    if (activeIndex < text.length - 2) {
+    if (activeIndex < text.length - 1) {
       setActiveIndex(activeIndex + 1);
     }
   }
@@ -25,7 +25,6 @@ export function RotatingBanner({ text, index }: Props) {
   }
 
   function handleClickIndex(num: number) {
-    if (num === index) setActiveIndex(num);
     setActiveIndex(num);
   }
 
@@ -33,7 +32,11 @@ export function RotatingBanner({ text, index }: Props) {
     <>
       <Banner text={text} index={activeIndex} newClick={handleClickIndex} />
       <PrevButton onClick={handleClickPrev} />
-      <IndexButtons items={text} click={handleClickIndex} />
+      <IndexButtons
+        items={text}
+        click={handleClickIndex}
+        isActive={activeIndex}
+      />
       <NextButton onClick={handleClickNext} />
     </>
   );
