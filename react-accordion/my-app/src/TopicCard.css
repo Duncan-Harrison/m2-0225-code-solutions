@@ -1,0 +1,13 @@
+.accordion {
+  min-width: 50vw;
+}
+
+div {
+  border: solid 1px;
+  width: 100%;
+  font-size: larger;
+}
+
+.title {
+  background-color: gainsboro;
+}
