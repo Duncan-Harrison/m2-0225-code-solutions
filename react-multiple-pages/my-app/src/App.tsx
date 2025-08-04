@@ -10,7 +10,7 @@ export function App() {
     <>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route path="Dashboard" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="details/:itemId" element={<Details />} />
           <Route path="About" element={<About />} />
           <Route path="*" element={<NotFound />} />

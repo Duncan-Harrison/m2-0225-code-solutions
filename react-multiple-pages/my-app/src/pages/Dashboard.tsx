@@ -54,7 +54,7 @@ type CardProps = {
 function ItemCard({ item }: CardProps) {
   return (
     <Link
-      to={`details/:${item.itemId}`}
+      to={`/details/${item.itemId}`}
       className="block cursor-pointer text-gray-900 rounded border border-gray-300 mb-4">
       <div className="flex-auto p-6">
         <h5 className="font-bold mb-3">{item.name}</h5>

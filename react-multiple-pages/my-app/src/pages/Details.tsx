@@ -3,13 +3,11 @@ import { type Item, readItem } from '../lib/read';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 export function Details() {
-  const params = useParams();
+  const itemId = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<unknown>();
-
-  params.itemId;
 
   useEffect(() => {
     async function loadItem(itemId: number) {
@@ -22,17 +20,17 @@ export function Details() {
         setIsLoading(false);
       }
     }
-    if (item.itemId) {
+    if (itemId) {
       setIsLoading(true);
-      loadItem(+item.itemId);
+      loadItem(+itemId);
     }
-  }, [item.itemId]);
+  }, [itemId]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error || !item) {
     return (
       <div>
-        Error Loading Item {item.itemId}:{' '}
+        Error Loading Item {`itemId`}:{' '}
         {error instanceof Error ? error.message : 'Unknown Error'}
       </div>
     );
