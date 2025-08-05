@@ -1,0 +1,25 @@
+.header-text {
+  font-size: 20px;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-gray-900 {
+  height: 90px;
+  width: 100%;
+  background-color: gray;
+}
+
+.flexor {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+li {
+  margin: 20px;
+}

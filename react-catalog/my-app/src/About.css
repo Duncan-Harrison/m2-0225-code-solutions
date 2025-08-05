@@ -1,0 +1,15 @@
+.about {
+  margin: 20% 0;
+}
+
+.pt-20 {
+  font-size: 20pt;
+}
+
+.text-center {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
