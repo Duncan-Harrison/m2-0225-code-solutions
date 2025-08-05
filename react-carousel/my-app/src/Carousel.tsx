@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { ImageCards } from './ImageCard';
 import { Dots } from './Dots';
 import { LeftButton, RightButton } from './SideButtons';
@@ -24,13 +24,18 @@ export function Carousel({ sources }: Props) {
     }
   }
 
-  function rightActive() {
+  const rightActive = useCallback(() => {
     if (activeIndex === sources.length - 1) {
       setActiveIndex(0);
     } else {
       setActiveIndex(activeIndex + 1);
     }
-  }
+  }, [sources, activeIndex]);
+
+  useEffect(() => {
+    const timeoutHandle = setTimeout(rightActive, 3000);
+    return () => clearTimeout(timeoutHandle);
+  }, [rightActive]);
 
   return (
     <div className="column">
