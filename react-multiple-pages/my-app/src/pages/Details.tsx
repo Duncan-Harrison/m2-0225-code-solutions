@@ -3,7 +3,7 @@ import { type Item, readItem } from '../lib/read';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 export function Details() {
-  const itemId = useParams();
+  const { itemId } = useParams();
   const navigate = useNavigate();
   const [item, setItem] = useState<Item>();
   const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +58,7 @@ export function Details() {
           </div>
           <button
             onClick={() => {
-              navigate('Dashboard');
+              navigate('/');
             }}>
             Save
           </button>
