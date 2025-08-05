@@ -1,0 +1,9 @@
+.arrow-container {
+  height: 50vh;
+  width: 20vw;
+}
+
+.arrow {
+  height: 50vh;
+  aspect-ratio: 1/1;
+}
