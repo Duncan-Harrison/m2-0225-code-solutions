@@ -1,3 +1,7 @@
-select "countryId" count(*)
+select "c"."countryId",
+        "c"."name",
+        count(*)
 from "cities"
-group by "countryId";
+join "countries" as "c" using ("countryId")
+group by "countryId"
+order by "c"."name";

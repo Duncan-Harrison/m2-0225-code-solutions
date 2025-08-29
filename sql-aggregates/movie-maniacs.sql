@@ -1,5 +1,7 @@
-select "customers"."firstName", "customers"."lastName", sum("payments"."amount")
+select "customers"."firstName",
+        "customers"."lastName",
+        sum("payments"."amount") as "totalAmount"
 from "customers"
 join "payments" using ("customerId")
 group by "customers"."customerId"
-order by sum("payments"."amount") desc;
+order by "totalAmount" desc;
