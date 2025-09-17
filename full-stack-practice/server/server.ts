@@ -17,8 +17,7 @@ app.get('/api/products', async (req, res, next) => {
   try {
     const sql = `
       select *
-        from "products"
-        returning *;
+        from "products";
     `;
     const result = await db.query(sql);
     res.json(result.rows);
@@ -36,8 +35,7 @@ app.get('/api/products/:productId', async (req, res, next) => {
     const sql = `
       select *
         from "products"
-        where "name" = $1
-        returning *;
+        where "productId" = $1;
     `;
     const params = [productId];
     const result = await db.query(sql, params);
